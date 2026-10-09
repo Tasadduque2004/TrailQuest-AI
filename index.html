@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173f35">
+  <title>TrailQuest AI — Less scrolling. More exploring.</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css', v=2) }}">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-mark">✳</span> TrailQuest <span class="ai">AI</span></a>
+  <div class="header-right"><div class="points-pill" aria-live="polite">🏆 Trail Points: <strong id="trailPointsDisplay">0</strong></div><div class="status"><span id="statusDot" class="dot"></span><span id="statusText">Checking local AI…</span></div></div>
+</header>
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">YOUR POCKET-SIZED NATURE GUIDE</p>
+      <h1>Less scrolling.<br><em>More exploring.</em></h1>
+      <p class="hero-text">A little AI inspiration. A real-world adventure. Pick a quest, step outside, and let the world be your screen.</p>
+      <div class="hero-pills"><span>✦ Made for the outdoors</span><span>⌁ Local AI ready</span><span>↗ Screen-light by design</span></div>
+    </div>
+    <div class="hero-art" aria-label="Illustration of a mountain trail"><div class="sun"></div><div class="mountain back"></div><div class="mountain front"></div><div class="trail"></div><div class="tree tree1">♠</div><div class="tree tree2">♠</div><div class="art-label">GO FIND<br>YOUR OUTSIDE</div></div>
+  </section>
+
+  <section class="workspace">
+    <div class="section-heading"><div><p class="eyebrow">01 / SET YOUR INTENTION</p><h2>What calls you outside?</h2></div><span class="step">ABOUT 30 SECONDS</span></div>
+    <div class="activity-grid" id="activities">
+      <button class="activity selected" data-activity="Nature Walk"><span class="activity-icon">🌿</span><b>Nature walk</b><small>Slow down & notice</small></button>
+      <button class="activity" data-activity="Birdwatching"><span class="activity-icon">🐦</span><b>Birdwatching</b><small>Listen, look, learn</small></button>
+      <button class="activity" data-activity="Photography Hunt"><span class="activity-icon">📷</span><b>Photo hunt</b><small>Find a new angle</small></button>
+      <button class="activity" data-activity="Gardening"><span class="activity-icon">🌱</span><b>Gardening</b><small>Grow something good</small></button>
+    </div>
+    <div class="form-grid">
+      <label>TIME YOU HAVE
+        <select id="minutes"><option value="10">10 minutes</option><option value="20" selected>20 minutes</option><option value="30">30 minutes</option><option value="45">45 minutes</option><option value="60">60 minutes</option></select>
+      </label>
+      <label>ENERGY LEVEL
+        <select id="difficulty"><option>Easy</option><option>Moderate</option><option>Adventurous</option></select>
+      </label>
+      <label class="interest-field">ANYTHING YOU'RE INTO? <span class="optional">OPTIONAL</span>
+        <input id="interests" maxlength="180" placeholder="e.g. clouds, butterflies, quiet places">
+      </label>
+    </div>
+    <button id="generate" class="primary">Create my outdoor quest <span>↗</span></button>
+    <p class="privacy-note">🔒 Your preferences stay on this device; local AI requests go to Ollama on your computer.</p>
+  </section>
+
+  <section id="questSection" class="quest-section hidden">
+    <div class="section-heading"><div><p class="eyebrow">02 / TAKE IT OUTSIDE</p><h2 id="questTitle">Your quest awaits</h2></div><span class="quest-time" id="questTime"></span></div>
+    <p id="questIntro" class="quest-intro"></p>
+    <div class="quest-progress"><div><span id="progressLabel">0 of 0 complete</span><span id="progressPercent">0%</span></div><div class="progress-track"><div id="progressBar"></div></div></div>
+    <div id="taskList" class="task-list"></div>
+    <div class="safety"><span>✳</span><div><b>A quick note on safety</b><p id="safetyText"></p></div></div>
+    <div class="finish-row"><button id="finish" class="primary" disabled>Complete my quest ✓</button><button id="newQuest" class="secondary">New quest ↻</button></div>
+    <div id="completed" class="completed hidden"><span>🏆</span><div><b>Quest complete. You did it!</b><p>You earned <strong>25 Trail Points</strong>. Now keep enjoying the outdoors—no need to stay on this screen.</p></div></div>
+    <p class="source-note" id="sourceNote"></p>
+  </section>
+
+  <section class="manifesto"><span class="manifesto-star">✳</span><div><p class="eyebrow">THE TRAILQUEST PROMISE</p><h2>The screen is the starting point,<br>not the destination.</h2><p>Read your mission. Lock your phone. Be curious about the place you're in.</p></div></section>
+</main>
+<footer><span>TrailQuest AI © 2026</span><span>Built for the Touch Grass open-source AI challenge</span></footer>
+<script src="{{ url_for('static', filename='app.js', v=2) }}"></script>
+</body>
+</html>
